@@ -113,7 +113,7 @@ func main() {
 		log.Fatal("ERROR(queryMatchesData): ", err)
 	}
 
-	fmt.Printf("Sort %d records returned from the data source\n", len(data))
+	fmt.Printf("Sorted %d records returned from the data source\n", len(data))
 	// Sort data from the most recent to the earliest
 	sort.Slice(data, func(i, j int) bool { return data[i].Date.After(data[j].Date) })
 
@@ -141,9 +141,9 @@ func main() {
 	}
 
 	var out bytes.Buffer
-	if err := json.Indent(&out, strData, "", "  "); err != nil {
+	if err := json.Indent(&out, strData, " ", "  "); err != nil {
 		log.Fatal("ERROR (info Indent): ", err)
 	}
 
-	fmt.Printf(">>> Data: \n %s", out.Bytes())
+	fmt.Println("Data: ", out.String())
 }

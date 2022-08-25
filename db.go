@@ -42,7 +42,7 @@ func setUpDatabase(dbLocation string) (*dbConn, error) {
 		path = filepath.Dir(dbLocation)
 	}
 
-	dbLocation = fmt.Sprintf("%s/foo.db", path)
+	dbLocation = fmt.Sprintf("%s/teams_sort.db", path)
 	db, err := sql.Open("sqlite3", dbLocation)
 	if err != nil {
 		return nil, errors.New("failed to initialise a db connection :" + err.Error())
